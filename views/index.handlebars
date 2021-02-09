@@ -1,0 +1,33 @@
+<div class='container'>
+    <div class='row text-center'>
+        <div class='col-6'>
+            <h4>Eat these:</h4>
+            <br>
+            {{#each burger_data}}
+            {{#unless this.devoured}}
+            <div class='card mt-4'>
+                <div class='card-body'>
+        <h2>{{this.burger_name}}</h2>
+        <button data-id={{this.id}} class= 'devourBtn btn btn-primary mt-4'>Devour This!</button>
+        </div>
+        </div>
+        {{/unless}}
+        {{/each}}
+        </div>
+        <div class='col-6'>
+            <h4 class='text-center'>Were Devoured:</h4>
+            <br>
+             {{#each burger_data}}
+             {{#if this.devoured}}
+
+              <div class= 'card mt-4'>
+                  <div class='card-body'>
+                        <h2>{{this.burger_name}}</h2>
+                  </div>
+              </div>
+             {{/if}}
+             {{/each}}
+        </div>
+    </div>
+
+</div>
