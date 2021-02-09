@@ -8,14 +8,24 @@ $(document).ready(function () {
         $.ajax({
             method: 'PUT',
             url: editUrl,
-        }).then((response) => {
-            location.reload();
-        });
+        }).then((response) => location.reload());
     });
-});
+
 
 // NOTE: 
 // When a user submits to "add burger", a new burger should be added to the db
 // and should be added to the list on selections on the left side
+$('#submitBurger').on('submit', (e) => {
+    e.preventDefault();
 
+    const text = $('#submitBurgerText').val();
+    $('#submitBurgerText').val('');
 
+    $.ajax({
+        method: 'POST',
+        url: '/add',
+        data: { text },
+    }).then(() => location.reload());
+});
+
+});

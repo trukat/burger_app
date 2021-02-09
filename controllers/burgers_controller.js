@@ -22,4 +22,15 @@ router.put('/devour/:id', (req, res) => {
   );
 });
 
+router.post('/add', (req, res) => {
+  connection.query(
+    'INSERT INTO burgers (burger_name) VALUES (?)',
+    [req.body.text],
+    (err) => {
+      if (err) throw err;
+      res.send('success');
+    }
+  );
+});
+
 module.exports = router;
