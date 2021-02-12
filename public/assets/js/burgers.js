@@ -28,4 +28,15 @@ $('#submitBurger').on('submit', (e) => {
     }).then(() => location.reload());
 });
 
+// NOTE: When a user clicks "delBtn", their selection should be removed 
+$(document).on('click', '.delBtn', (e) => {
+    const editUrl = `/delete/${e.target.getAttribute('data-id')}`;
+
+    $.ajax({
+        method: 'DELETE',
+        url: editUrl,
+    }).then((response) => location.reload());
+
+});
+
 });
